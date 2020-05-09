@@ -13,13 +13,17 @@
       color: red;
       text-decoration: line-through;
     }
-    .allDone:hover {
-      cursor: pointer;
-    }
+
   </style>
 </head>
 
 <body>
+  <div class="header-wrapper">
+    <h1>Homework and Challenges</h1>
+    <div class="questions">
+      <a href="homework.html"><h2>Questions</h2></a>
+    </div>  
+  </div>
   <div class="todos">
     <h2>Pending Todos</h2>
     <ul class="incompleteTodoWrapper">
@@ -39,10 +43,10 @@
 </body>
 
 <script>
-const items = document.getElementsByClassName("todoItem");
-const newTodo = document.getElementsByTagName('h2')[0];
+  const items = document.getElementsByClassName("todoItem");
+const newTodo = document.getElementsByTagName('h2')[1];
 for (item of items) {
-  item.addEventListener("click", function(item) {
+  item.onclick = function(item) {
     if (items.length === 1)
       newTodo.style.cssText = 'text-decoration: line-through; color: red'
     const tgt = item.target;
@@ -51,10 +55,8 @@ for (item of items) {
     const done = document.createElement('li') 
     done.appendChild(tgt);
     completed.appendChild(done)
-  })
-   
-  };
-
+  }
+}  
  
 </script>
 
