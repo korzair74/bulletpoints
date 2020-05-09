@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .todoItem:hover {
+      cursor: pointer;
+    }
+    .allDone {
+      color: red;
+      text-decoration: line-through;
+    }
+    .allDone:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="todos">
+    <h2>Pending Todos</h2>
+    <ul class="incompleteTodoWrapper">
+      <div class='incomplete'></div>
+      <li class="todoItem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, animi.</li>
+      <li class="todoItem">Numquam dolor quo alias nam vel voluptates magni magnam quisquam.</li>
+      <li class="todoItem">Recusandae eaque quisquam facere ab reprehenderit cupiditate magni placeat quis?</li>
+      <li class="todoItem">Expedita asperiores nam saepe voluptatem, nostrum aliquid debitis quam recusandae.</li>
+      <li class="todoItem">Quaerat velit deserunt reprehenderit, vel placeat impedit accusamus non, deleniti!</li>
+    </ul>
+  </div>
+
+  <h2>Completed Todos</h2>
+  <ul class="completedTodoWrapper">
+    <div class="completed"></div>
+  </ul>
+</body>
+
+<script>
+const items = document.getElementsByClassName("todoItem");
+const newTodo = document.getElementsByTagName('h2')[0];
+for (item of items) {
+  item.addEventListener("click", function(item) {
+    if (items.length === 1)
+      newTodo.style.cssText = 'text-decoration: line-through; color: red'
+    const tgt = item.target;
+    tgt.setAttribute('class', 'allDone');
+    const completed = document.querySelector('.completed')
+    const done = document.createElement('li') 
+    done.appendChild(tgt);
+    completed.appendChild(done)
+  })
+   
+  };
+
+ 
+</script>
+
+</html>
